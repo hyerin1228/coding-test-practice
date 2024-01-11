@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+
+    <script>
+
+        // 이렇게 넣었는데 왜 결과는 100원부터 쌓이는지 이해가 안가네..
+        let moneysObj = {
+            5000: 0,
+            1000: 0,
+            500: 0,
+            100: 0
+        }
+
+        let moneysArr =  Object.entries(moneysObj)
+        moneysArr.reverse()
+
+        const inputMoney = prompt("교환할 액수를 입력해 주세요.")
+        let leftMoney = inputMoney
+        
+        // 5000원, 1000원, 500원, 100원 순으로 연산해보기
+        moneysArr.forEach((item) =>{
+            // n원으로 나눈 값이 1이상이면  몫을 moneysObj 에 해당하는 곳에 저장하고 돈도 깎고 다음꺼 비교
+            if(calStatus(leftMoney,item[0])){
+                console.log("leftMoney = " + leftMoney)
+                let count = calCount(leftMoney,item[0])
+                leftMoney -=  (count * item[0]) // 교환 가능한 개수에 해당하는 금액만큼 빼기
+                console.log("leftMoney = " + leftMoney)
+                item[1] = count              // 교환 가능한 개수 추가
+            }
+        })
+        
+        console.log(moneysArr)
+
+
+        // 나눈 값이 1 이상이면
+        function calStatus(leftMoney, won){
+            console.log("calStatus")
+            console.log(eval( leftMoney / won ) >= 1)
+            return eval(leftMoney/won) >= 1
+        }
+
+        function calCount(leftMoney, won){
+            console.log("calCount")
+            console.log(eval( leftMoney / won ))
+            return eval( leftMoney / won )
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!-- https://fastcampus.co.kr/dev_online_upjscodingtest -->
