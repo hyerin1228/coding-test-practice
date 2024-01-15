@@ -45,10 +45,10 @@ rl.on('line', (inputMoney) => {
   moneysArr.forEach((item) =>{
       // n원으로 나눈 값이 1이상이면  몫을 moneysObj 에 해당하는 곳에 저장하고 돈도 깎고 다음꺼 비교
       if(calStatus(leftMoney,item[0])){
-          console.log("leftMoney = " + leftMoney)
+          console.log("남은 돈 = " + leftMoney)
           let count = calCount(leftMoney,item[0])
           leftMoney -=  (count * item[0]) // 교환 가능한 개수에 해당하는 금액만큼 빼기
-          console.log("leftMoney = " + leftMoney)
+          console.log("빼고 남은 돈 = " + leftMoney)
           item[1] = count              // 교환 가능한 개수 추가
       }
   })
@@ -57,14 +57,12 @@ rl.on('line', (inputMoney) => {
 
   // 나눈 값이 1 이상이면
   function calStatus(leftMoney, won){
-      console.log("calStatus")
-      console.log(eval( leftMoney / won ) >= 1)
+      console.log("교환할 수 있는 돈 단위 = " + won + ": "+ (eval( leftMoney / won ) >= 1))
       return eval(leftMoney/won) >= 1
   }
 
   function calCount(leftMoney, won){
-      console.log("calCount")
-      console.log(Math.floor(eval( leftMoney / won )))
+      console.log("몇 장이 나오는지 = " + Math.floor(eval( leftMoney / won )))
       return Math.floor(eval( leftMoney / won ))
   }
 
