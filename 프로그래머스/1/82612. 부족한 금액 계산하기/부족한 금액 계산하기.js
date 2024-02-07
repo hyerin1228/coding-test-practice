@@ -5,7 +5,7 @@ function solution(price, money, count) {
         창렬 += (price * i)
     }
     
-    return (money - 창렬 > 0) ? 0 
+    return (money - 창렬 >= 0) ? 0 
                              : 창렬 - money;
 }
 
