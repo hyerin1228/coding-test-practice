@@ -2,16 +2,7 @@ function solution(s) {
     let strArrays = s.split('');
     
     strArrays.sort((a, b) => b.codePointAt() - a.codePointAt());
-    /*
-        입력값 〉	"Zbcdefg"
-        기댓값 〉	"gfedcbZ"
-        실행 결과 〉	실행한 결괏값 ""이 기댓값 "gfedcbZ"과 다릅니다.
-        출력 〉	[
-          'g', 'f', 'e',
-          'd', 'c', 'b',
-          'Z'
-        ]
-    */
+
     
     return strArrays.join('');
 }
@@ -30,7 +21,27 @@ function solution(s) {
         문자열.prototype.codePointAt()
         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt
 
-}
+    /*
+        
+        입력값 〉	"Zbcdefg"
+        기댓값 〉	"gfedcbZ"
+        실행 결과 〉	테스트를 통과하였습니다.
+        출력 〉	90, 98
+        98, 99
+        99, 100
+        100, 101
+        101, 102
+        102, 103
+
+        입력값 〉	"Zbcdefg"
+        기댓값 〉	"gfedcbZ"
+        실행 결과 〉	실행한 결괏값 ""이 기댓값 "gfedcbZ"과 다릅니다.
+        출력 〉	[
+          'g', 'f', 'e',
+          'd', 'c', 'b',
+          'Z'
+        ]
+
     
 
     let answer = '';
@@ -56,6 +67,9 @@ function solution(s) {
 }
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
+
+
 
 
 */
